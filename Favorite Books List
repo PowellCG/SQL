@@ -1,0 +1,40 @@
+CREATE TABLE authors (id INTEGER PRIMARY KEY, name TEXT, book_title TEXT, year_published integer, author_id integer);
+Insert into authors values (1,'Tom Clancy', 'Red Storm Rising',1986,1);
+insert into authors values (2,'Tom Clancy', 'Hunt for Red October',1984,1);
+insert into authors values (3,'Tom Clancy', 'Patriot Games',1987,1);
+insert into authors values (4,'JRR Tolkein','The Hobbit',1937,2);
+Insert into authors values (5,'JRR Tolkein','The Fellowship of the Ring',1954,2);
+insert into authors values (6,'JRR Tolkein','The Two Towers',1954,2);
+Insert into authors values (7,'JRR Tolkein','The Return of the King',1955,2);
+insert into authors values (8,'Larry Bond','Red Phoenix',1989,3);
+insert into authors values (9,'Larry Bond', 'Cauldron',1993,3);
+insert into authors values (10,'Larry Bond','Vortex',1991,3);
+insert into authors values (11,'Harold Coyle','Team Yankee',1987,4);
+insert into authors values (12,'Tom Clancy','SSN',1996,1);
+insert into authors values (13,'Tom Clancy','The Cardinal of the Kremlin',1988,1);
+Insert into authors values (14,'Jack Higgins','The Eagle Has Landed',1975,5);
+Insert into authors values (15,'Jack Higgins','The Eagle Has Flown',1991,5);
+
+Create Table Favorite_Books (id INTEGER PRIMARY KEY, book_title text, favorite_ranking integer);
+Insert into Favorite_Books values (1,'Red Storm Rising',1);
+Insert into Favorite_Books values (2,'The Hobbit',2);
+Insert into Favorite_Books values (3,'Red Phoenix',3);
+Insert into Favorite_Books values (4,'SSN',4);
+Insert into Favorite_Books values (5,'Hunt for Red October',5);
+Insert into Favorite_Books values (6,'The Two Towers',6);
+Insert into Favorite_Books values (7,'Cauldron',7);
+Insert into Favorite_Books values (8,'The Eagle Has Landed',8);
+Insert into Favorite_Books values (9,'The Fellowship of the Ring',9);
+Insert into Favorite_Books Values (10,'Patriot Games',10);
+Insert into Favorite_Books values (11,'Vortex',11);
+Insert into Favorite_Books values (12,'The Return of the King',12);
+Insert into Favorite_Books Values (13,'The Eagle Has Flown',13);
+Insert into Favorite_Books values (14,'Team Yankee',14);
+Insert into Favorite_Books values (15,'The Cardinal of the Kremlin',15);
+
+select authors.name as 'Author Name', authors.author_id as 
+'Author ID Number',authors.year_published as 'Year Published', Favorite_Books.book_title as 'Favorite Books in Order'
+    From authors
+    join Favorite_Books
+    on authors.book_title=Favorite_Books.book_title
+    Order by Favorite_Books.favorite_ranking asc;
